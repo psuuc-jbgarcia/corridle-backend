@@ -5,7 +5,6 @@ header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
-// Update this path based on your screenshot
 require 'PHPMailer/vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require 'PHPMailer/vendor/phpmailer/phpmailer/src/SMTP.php';
 require 'PHPMailer/vendor/phpmailer/phpmailer/src/Exception.php';
