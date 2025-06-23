@@ -1,0 +1,16 @@
+---- NEW REQUEST ----
+POST: Array
+(
+    [store_id] => store_746152_1750684372729
+    [user_uid] => 746152
+    [business_name] => 1212
+    [phone_number] => 1212
+    [email] => jj@gmail.com
+    [category] => Yard Work
+    [partnership_type] => LLC
+    [description] => 1212121212121212
+    [is_owner] => Yes
+)
+FILES: Array
+(
+)
