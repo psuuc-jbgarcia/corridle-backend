@@ -65,7 +65,7 @@ if (isset($data['email']) && isset($data['password'])) {
             $mail->Body    = "<p>Hi,</p><p>Please click the link below to verify your email:</p><a href='$verify_link'>$verify_link</a>";
 
             $mail->send();
-            echo json_encode(["success" => true, "message" => "Verification email sent.", "user_id" => $user_id, "userType" => $userType]);
+            echo json_encode(["success" => true, "message" => "Verification email sent.", "user_id" => $user_id, "userType" => $userType,"email" => $email]);
         } catch (Exception $e) {
             echo json_encode(["success" => false, "message" => "Email error: {$mail->ErrorInfo}"]);
         }
