@@ -1,16 +1,26 @@
 ---- NEW REQUEST ----
 POST: Array
 (
-    [store_id] => store_746152_1750684372729
-    [user_uid] => 746152
-    [business_name] => 1212
+    [store_id] => store_289647_1750727344496
+    [user_uid] => 289647
+    [business_name] => sadsada
     [phone_number] => 1212
-    [email] => jj@gmail.com
-    [category] => Yard Work
-    [partnership_type] => LLC
-    [description] => 1212121212121212
+    [email] => ssk@gmail.com
+    [category] => Snow Removal
+    [partnership_type] => C Corporation
+    [description] => 121212
     [is_owner] => Yes
 )
 FILES: Array
 (
+    [ownership_proof] => Array
+        (
+            [name] => RobloxScreenShot20250528_112821605.png
+            [full_path] => RobloxScreenShot20250528_112821605.png
+            [type] => application/octet-stream
+            [tmp_name] => C:\xampp\tmp\phpCB0.tmp
+            [error] => 0
+            [size] => 1952387
+        )
+
 )
