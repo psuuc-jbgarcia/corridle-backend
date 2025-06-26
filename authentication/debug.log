@@ -116,3 +116,73 @@ FILES: Array
         )
 
 )
+---- NEW REQUEST ----
+POST: Array
+(
+    [store_id] => 470335_1750945523773
+    [user_uid] => 626563
+    [business_name] => 1
+    [phone_number] => 11
+    [email] => s@gmail.com
+    [category] => ASSA
+    [description] => 121
+    [postal_code] => 121212
+)
+FILES: Array
+(
+)
+---- NEW REQUEST ----
+POST: Array
+(
+    [store_id] => 822109_1750945618712
+    [user_uid] => 822109
+    [business_name] => 11
+    [phone_number] => 11
+    [email] => k@gmail.com
+    [category] => 11
+    [description] => 11
+    [postal_code] => 1111
+)
+FILES: Array
+(
+)
+---- NEW REQUEST ----
+POST: Array
+(
+    [store_id] => 633727_1750947596264
+    [user_uid] => 633727
+    [business_name] => 111
+    [phone_number] => 1111
+    [email] => gjeric54321@gmail.com
+    [category] => 111
+    [description] => 1111
+    [postal_code] => 11111
+)
+FILES: Array
+(
+)
+---- NEW REQUEST ----
+POST: Array
+(
+    [store_id] => 728685_1750948422911
+    [user_uid] => 728685
+    [business_name] => 1212
+    [phone_number] => 1111
+    [email] => gjeric54321@gmail.com
+    [category] => 121
+    [description] => 1212
+    [postal_code] => 1212
+)
+FILES: Array
+(
+    [ownership_proof] => Array
+        (
+            [name] => RobloxScreenShot20250607_184107429.png
+            [full_path] => RobloxScreenShot20250607_184107429.png
+            [type] => application/octet-stream
+            [tmp_name] => C:\xampp\tmp\phpF9CF.tmp
+            [error] => 0
+            [size] => 2066285
+        )
+
+)
