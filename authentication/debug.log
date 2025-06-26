@@ -24,3 +24,95 @@ FILES: Array
         )
 
 )
+---- NEW REQUEST ----
+POST: Array
+(
+    [store_id] => 109000_1750729958040
+    [user_uid] => 109000
+    [business_name] => 12
+    [phone_number] => 12
+    [email] => garciajerico217@gmail.com
+    [category] => Yard Work
+    [partnership_type] => C Corporation
+    [description] => 1212
+    [is_owner] => No
+)
+FILES: Array
+(
+)
+---- NEW REQUEST ----
+POST: Array
+(
+    [store_id] => 430600_1750904965035
+    [user_uid] => 430600
+    [business_name] => sdfsdfsdfsdf
+    [phone_number] => 12121
+    [email] => gjeric54321@gmail.com
+    [category] => Plumbing
+    [partnership_type] => Cooperative (LP)
+    [description] => fsfsdfsdfsd
+    [is_owner] => Yes
+)
+FILES: Array
+(
+    [ownership_proof] => Array
+        (
+            [name] => RobloxScreenShot20250528_112359295.png
+            [full_path] => RobloxScreenShot20250528_112359295.png
+            [type] => application/octet-stream
+            [tmp_name] => C:\xampp\tmp\phpB67C.tmp
+            [error] => 0
+            [size] => 1691479
+        )
+
+)
+---- NEW REQUEST ----
+POST: Array
+(
+    [store_id] => 470335_${DateTime.now().millisecondsSinceEpoch}
+    [user_uid] => 470335
+    [business_name] => 1
+    [phone_number] => 12
+    [email] => j@gmail.com
+    [category] => 1
+    [description] => asdasd
+    [postal_code] => 1212
+)
+FILES: Array
+(
+    [ownership_proof] => Array
+        (
+            [name] => RobloxScreenShot20250612_092947663.png
+            [full_path] => RobloxScreenShot20250612_092947663.png
+            [type] => application/octet-stream
+            [tmp_name] => C:\xampp\tmp\php606A.tmp
+            [error] => 0
+            [size] => 1988083
+        )
+
+)
+---- NEW REQUEST ----
+POST: Array
+(
+    [store_id] => 470335_${DateTime.now().millisecondsSinceEpoch}
+    [user_uid] => 470335
+    [business_name] => 1
+    [phone_number] => 12
+    [email] => j@gmail.com
+    [category] => 1
+    [description] => asdasd
+    [postal_code] => 1212
+)
+FILES: Array
+(
+    [ownership_proof] => Array
+        (
+            [name] => RobloxScreenShot20250612_092947663.png
+            [full_path] => RobloxScreenShot20250612_092947663.png
+            [type] => application/octet-stream
+            [tmp_name] => C:\xampp\tmp\php8D57.tmp
+            [error] => 0
+            [size] => 1988083
+        )
+
+)

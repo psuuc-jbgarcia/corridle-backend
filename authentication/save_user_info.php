@@ -7,7 +7,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 
 require '../connection.php';
 
-// Debug: Log raw input and parsed data
+// Debugging: log raw input and parsed data
 $rawInput = file_get_contents("php://input");
 file_put_contents("php_debug_log.txt", "RAW INPUT:\n$rawInput\n", FILE_APPEND);
 
@@ -29,14 +29,14 @@ if (
     exit;
 }
 
-$user_uid = $conn->real_escape_string($data['user_uid']);
-$firstName = $conn->real_escape_string($data['firstName']);
-$middleName = $conn->real_escape_string($data['middleName'] ?? '');
-$lastName = $conn->real_escape_string($data['lastName']);
+$user_uid    = $conn->real_escape_string($data['user_uid']);
+$firstName   = $conn->real_escape_string($data['firstName']);
+$middleName  = $conn->real_escape_string($data['middleName'] ?? '');
+$lastName    = $conn->real_escape_string($data['lastName']);
 $phoneNumber = $conn->real_escape_string($data['phoneNumber']);
 $dateOfBirth = $conn->real_escape_string($data['dateOfBirth']);
-$email = $conn->real_escape_string($data['email']);
-$userType = $conn->real_escape_string($data['userType']);
+$email       = $conn->real_escape_string($data['email']);
+$userType    = $conn->real_escape_string($data['userType']);
 
 $insert_sql = "INSERT INTO user_info (
     user_uid, first_name, middle_name, last_name,
@@ -46,16 +46,23 @@ $insert_sql = "INSERT INTO user_info (
     '$phoneNumber', '$dateOfBirth', '$email'
 )";
 
-$update_sql = "UPDATE users SET userType = '$userType' WHERE user_id = '$user_uid'";
+$update_sql_user_type = "UPDATE users SET userType = '$userType' WHERE user_id = '$user_uid'";
+$update_sql_hasinfo   = "UPDATE users SET has_store_info = 1 WHERE user_id = '$user_uid'";
 
 // Insert and update
 if ($conn->query($insert_sql) === TRUE) {
-    if ($conn->query($update_sql) === TRUE) {
-        ob_end_clean();
-        echo json_encode(['success' => true, 'message' => 'Information saved successfully']);
+    if ($conn->query($update_sql_user_type) === TRUE) {
+        // Now update has_userinfo
+        if ($conn->query($update_sql_hasinfo) === TRUE) {
+            ob_end_clean();
+            echo json_encode(['success' => true, 'message' => 'Information saved and updated successfully']);
+        } else {
+            ob_end_clean();
+            echo json_encode(['success' => false, 'message' => 'Failed to update has_userinfo: ' . $conn->error]);
+        }
     } else {
         ob_end_clean();
-        echo json_encode(['success' => false, 'message' => 'User update failed: ' . $conn->error]);
+        echo json_encode(['success' => false, 'message' => 'User type update failed: ' . $conn->error]);
     }
 } else {
     ob_end_clean();

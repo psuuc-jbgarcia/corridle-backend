@@ -6,7 +6,6 @@ header("Content-Type: application/json");
 
 require '../connection.php';
 
-// 📄 Debug logs
 file_put_contents('debug.log', "---- NEW REQUEST ----\n", FILE_APPEND);
 file_put_contents('debug.log', "POST: " . print_r($_POST, true), FILE_APPEND);
 file_put_contents('debug.log', "FILES: " . print_r($_FILES, true), FILE_APPEND);
@@ -18,9 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone_number = $_POST['phone_number'] ?? '';
     $email = $_POST['email'] ?? '';
     $category = $_POST['category'] ?? '';
-    $partnership_type = $_POST['partnership_type'] ?? '';
     $description = $_POST['description'] ?? '';
-    $is_owner = $_POST['is_owner'] ?? '';
+    $postal_code = $_POST['postal_code'] ?? '';
 
     $target_dir = "uploads/";
     if (!file_exists($target_dir)) {
@@ -28,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $ownership_proof_path = null;
-
     if (isset($_FILES['ownership_proof']) && $_FILES['ownership_proof']['error'] === UPLOAD_ERR_OK) {
         $filename = uniqid() . "_" . basename($_FILES["ownership_proof"]["name"]);
         $target_file = $target_dir . $filename;
@@ -41,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    $stmt = $conn->prepare("INSERT INTO stores (store_id, user_uid, business_name, phone_number, email, category, partnership_type, description, ownership_proof, is_owner) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssssss", $store_id, $user_uid, $business_name, $phone_number, $email, $category, $partnership_type, $description, $ownership_proof_path, $is_owner);
+    $stmt = $conn->prepare("INSERT INTO stores (store_id, user_uid, business_name, phone_number, email, category, description, ownership_proof, postal_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssss", $store_id, $user_uid, $business_name, $phone_number, $email, $category, $description, $ownership_proof_path, $postal_code);
 
     if ($stmt->execute()) {
         echo json_encode(["success" => true, "message" => "✅ Store registered."]);

@@ -2,6 +2,7 @@
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type");
+
 require '../connection.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
@@ -32,7 +33,8 @@ if (isset($data['email']) && isset($data['password'])) {
             "success" => true,
             "message" => "Login successful.",
             "userType" => $user['userType'],
-            "userId" => $user['user_id']
+            "userId" => $user['user_id'],
+            "has_store_info" => (int)$user['has_store_info'] // Must be this
         ]);
     } else {
         echo json_encode(["success" => false, "message" => "Invalid email or password."]);
