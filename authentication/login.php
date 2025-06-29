@@ -29,13 +29,32 @@ if (isset($data['email']) && isset($data['password'])) {
     }
 
     if (password_verify($password, $user['password'])) {
-        echo json_encode([
+        $response = [
             "success" => true,
             "message" => "Login successful.",
             "userType" => $user['userType'],
             "userId" => $user['user_id'],
-            "has_store_info" => (int)$user['has_store_info'] // Must be this
-        ]);
+            "email" => $user['email'],
+
+            "has_store_info" => (int)$user['has_store_info']
+        ];
+
+        // 🔍 If user is a Shop Owner, fetch their store_id
+        if ($user['userType'] === 'Shop Owner') {
+            $storeStmt = $conn->prepare("SELECT store_id FROM stores WHERE user_uid = ? LIMIT 1");
+            $storeStmt->bind_param("s", $user['user_id']);
+            $storeStmt->execute();
+            $storeResult = $storeStmt->get_result();
+
+            if ($storeResult->num_rows > 0) {
+                $store = $storeResult->fetch_assoc();
+                $response['storeId'] = $store['store_id'];
+            } else {
+                $response['storeId'] = null; // Still send the key if not found
+            }
+        }
+
+        echo json_encode($response);
     } else {
         echo json_encode(["success" => false, "message" => "Invalid email or password."]);
     }
